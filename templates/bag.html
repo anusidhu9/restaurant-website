@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <title>Document</title>
+    
+</head>
+<body>
+    <div class="container" style="font-family: 'Times New Roman', Times, serif;">
+        <table class="table table-striped table-responsive table-hover  mt-5">
+            <tr style="text-align: center;">
+                <th style="background-color: rgba(0, 128, 0, 0.401);">Sr. no.</th>
+                <th style="background-color: rgba(0, 128, 0, 0.401);">Dish Id</th>
+                <th style="background-color: rgba(0, 128, 0, 0.401);">Dish Name</th>
+                <th style="background-color: rgba(0, 128, 0, 0.401);">Dish Price</th>
+                <th style="background-color: rgba(0, 128, 0, 0.401);">Quantity</th>
+                <th style="background-color: rgba(0, 128, 0, 0.401);">Total Price</th>
+                <th style="background-color: rgba(0, 128, 0, 0.401);">Actions</th>
+            </tr>
+
+            {% for i in data %}
+            <tr style="text-align: center;">
+                
+                <td>{{i.id}}</td>
+                <td>{{i.dish_id}}</td>
+                <td>{{i.dish_name}}</td>
+                <td>&#8377;{{i.dish_price}}</td>
+                <td>{{i.quantity}}</td>
+                <td>&#8377;{{i.total_pr}}</td>
+                <td><a href="/delee/{{i.id}}"><button type="button" class="btn btn-outline-danger">Delete</button></a></td>
+            </tr>
+            {% endfor %}
+
+            
+            <tr>
+                <th style="background-color: rgba(139, 0, 81, 0.362);" colspan="6">Total Price: &#8377;{{total}}</th>
+                <th style="background-color: rgba(139, 0, 81, 0.362);"><a href="/order"><button type="button" class="btn btn-success">Order Now</button></a></th>
+            </tr>
+            
+        </table>
+    </div>
+    <a href="/home"><button type="button" class="btn btn-dark float-end mx-5 fs-5">Back</button></a>
+</body>
+</html>

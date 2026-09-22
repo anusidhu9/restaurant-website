@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            overflow-x:hidden;
+        }
+        nav {
+            background-color: black;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 25px;
+            text-transform: capitalize;
+            padding: 10px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        
+        .drop1 {
+            float: left;
+        }
+
+        .drop1 .dropbtn1 {
+            background-color: black;
+            color: white;
+            outline: 0px;
+            border: 0px;
+            margin: 10px;
+            font-size: 25px;
+            font-family: 'Times New Roman';
+        }
+
+        .cont {
+            display: none;
+            position: absolute;
+            color: white;
+            min-width: 170px;
+            background-color: black;
+
+        }
+
+        .cont a {
+            float: none;
+            display: block;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .drop1:hover .cont {
+            display: block;
+        }
+
+
+        .box {
+            width:1270px;
+            height: 500px;
+            background-image:url("{% static '/pizza4.jpg' %}");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
+        }
+
+        .box h1 {
+            font-size: 70px;
+            font-style: italic;
+            text-align: left;
+            color: black;
+        }
+
+        .box h4 {
+            color: black;
+            text-align: left;
+        }
+      
+        .bi-list-nested {
+            color: black;
+        }
+
+        .m {
+            position: relative;
+            left: 180px;
+        }
+
+        .n {
+            position: relative;
+            left: 100px;
+        }
+
+        .but {
+            position: relative;
+            left: 170px;
+        }
+        .a {
+            animation: pulse 4s linear infinite;
+        }
+        @-webkit-keyframes pulse {
+                0% {
+                    -webkit-transform: scale(1.1);
+                    transform: scale(1.1);
+                }
+                50% {
+                -webkit-transform: scale(0.8);
+                transform: scale(0.8);
+                }
+                100% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+                }
+        }
+        .main{
+            margin-top:40px;
+            background-color:black;
+            height:80px;
+            color: white;
+            width:1270px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .main1{
+            background-color: black;
+            color:white;
+            height:420px;
+            width:1270px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .div1{
+            height: auto;
+            width:600px;
+            background-color: black;
+            color:white;
+            margin-left: 150px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .div1 h4{
+            color:white;
+        }
+        .div2{
+            height: auto;
+            width:600px;
+            background-color: black;
+            color:white;
+            font-family: 'Times New Roman', Times, serif;
+            
+        }
+        .main3{
+            background-color:black;
+            height:150px;
+            color: white;
+            width:1270px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .div4{
+            height: auto;
+            width:600px;
+            background-color: black;
+            color:white;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .div4 input{
+            width:400px;
+           
+        }
+        .div4 input:hover{
+            background-color:grey;
+        }
+        .div5{
+            height: auto;
+            width:600px;
+            background-color: black;
+            color:white;
+            margin-left: 150px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="text-center">
+        <a href="/home" class="float-start">Food Villa</a>
+        <a href="/bag" class="float-end"><button type="button" class="btn btn-light btn-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16">
+                <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
+              </svg><span class="badge text-bg-dark">{{length}}</span>
+          </button></a>
+        <a href="/contactus" class="float-end">Contact Us</a>
+        <a href="/aboutus" class="float-end">About Us</a>
+        <div class="float-end">
+            {% if user.is_authenticated %}
+
+            <div class="drop1">
+                <button class="dropbtn1"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"
+                        fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                        <path fill-rule="evenodd"
+                            d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                    </svg>&nbsp;{{user.username}}</button>
+                    <div class="cont">
+                        <a href="/logout">Logout</a>
+                        <a href="/trackorders">Track Order</a>
+                    </div>
+            </div>
+            {% else %}
+            <div class="drop1">
+                <button class="dropbtn1"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"
+                        fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                        <path fill-rule="evenodd"
+                            d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                    </svg>&nbsp;Login&Signup</button>
+                <div class="cont">
+                    <a href="/login">Login</a>
+                    <a href="/signup">Signup</a>
+                </div>
+            </div>
+            
+            {% endif %}
+        </div>
+        <a href="" class="float-end">Home</a>
+    </nav>
+
+
+    <div class="box">
+        <br><br>
+        <div class="container mt-5">
+
+            <h1 style="font-family: 'Times New Roman', Times, serif;"><span class="m">The </span><br><svg xmlns="http://www.w3.org/2000/svg" width="46" height="46"
+                    fill="currentColor" class="bi bi-list-nested" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M4.5 11.5A.5.5 0 0 1 5 11h10a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm-2-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm-2-4A.5.5 0 0 1 1 3h10a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5z" />
+                </svg>FOOD VILLA<svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" fill="currentColor"
+                    class="bi bi-list-nested" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M4.5 11.5A.5.5 0 0 1 5 11h10a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm-2-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm-2-4A.5.5 0 0 1 1 3h10a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5z" />
+                </svg></h1><br>
+            <h3 style="font-family: 'Times New Roman', Times, serif;"><span class="n">TAKEOUT & DELIVERY</h3></span>
+            <div class="but">
+                <a href="/signup"><button type="button" class="btn btn-warning fw-bold mt-3">ORDER NOW</button></a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container mx-6" style="font-family: 'Times New Roman', Times, serif;">
+        <div class="row">
+            {% for i in data %}
+            <div class="col-4">
+                <div class="boxx mt-5 p-2">
+                    <form action="/cart/{{i.id}}" method="POST">
+                        {% csrf_token %}
+                        <div class="card" style="width: 21rem;">
+                            <div class="a">
+                            <img src="{{i.image.url}}" class="card-img-top" alt="img" height="240px" width="240px"></div>
+                            <div class="card-body">
+                              <center><h3 class="card-title" style="font-weight: bold;">{{i.dish_name}}</h3></center>
+                              <h5 class="card-text">{{i.dish_category}}</h5>
+                              <p class="card-text">{{i.dish_description}}</p>
+                                
+                              
+                              <select name="quantity" id="" class="btn btn-dark">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option> 
+                                <option value="6">6</option>
+                                
+
+
+                              </select><br>
+                              <h5 class="card-text">&#8377;{{i.offer_price}} <del>&#8377;{{i.actual_price}}</del></h5>
+                              
+                              <button type="submit" class="btn btn-outline-success">Add to cart</button>
+                            </div>
+                          </div>
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+            
+        </div>
+
+        </div>
+        <br><br><br><br>
+        <!-- Gallery -->
+        <h1 style="font-family: 'Times New Roman', Times, serif;text-align: center;background-color: black;color: white;">FOOD GALLERY</h1>
+<div class="row">
+    
+    <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+      <img
+        src="{% static '/amer3.jpg' %}"
+        class="w-100 shadow-1-strong rounded mb-4"
+        alt="Boat on Calm Water" style="height:200px;"
+      />
+    
+      <img
+        src="{% static '/indian6.jpg' %}"
+        class="w-100 shadow-1-strong rounded mb-4"
+        alt="Wintry Mountain Landscape" style="height:200px;"
+      />
+    </div>
+  
+    <div class="col-lg-4 mb-4 mb-lg-0">
+      <img
+        src="{% static '/indian5.jpg' %}"
+        class="w-100 shadow-1-strong rounded mb-4"
+        alt="Mountains in the Clouds" style="height:200px;"
+      />
+  
+      <img
+        src="{% static '/span3.jpg' %}"
+        class="w-100 shadow-1-strong rounded mb-4"
+        alt="Boat on Calm Water" style="height:200px;"
+      />
+    </div>
+  
+    <div class="col-lg-4 mb-4 mb-lg-0">
+      <img
+        src="{% static '/span2.webp' %}"
+        class="w-100 shadow-1-strong rounded mb-4"
+        alt="Waves at Sea" style="height:200px;"
+      />
+  
+      <img
+        src="{% static '/chinese6.webp' %}"
+        class="w-100 shadow-1-strong rounded mb-4"
+        alt="Yosemite National Park" style="height:200px;"
+      />
+    </div>
+    <div class="col-lg-4 mb-4 mb-lg-0">
+        <img
+          src="{% static '/italian2.jpg' %}"
+          class="w-100 shadow-1-strong rounded mb-4"
+          alt="Waves at Sea" style="height:200px;"
+        />
+    
+        <img 
+          src="{% static '/greek2.jpg' %}"
+          class="w-100 shadow-1-strong rounded mb-4"
+          alt="Yosemite National Park" style="height:200px;"
+        />
+      </div>
+      <div class="col-lg-4 mb-4 mb-lg-0">
+        <img
+          src="{% static '/chinese3.webp' %}"
+          class="w-100 shadow-1-strong rounded mb-4"
+          alt="Waves at Sea" style="height:200px;"
+        />
+    
+        <img
+          src="{% static '/chinese4.webp' %}"
+          class="w-100 shadow-1-strong rounded mb-4"
+          alt="Yosemite National Park" style="height:200px;"
+        />
+      </div>
+      <div class="col-lg-4 mb-4 mb-lg-0">
+        <img
+          src="{% static '/chinese2.webp' %}"
+          class="w-100 shadow-1-strong rounded mb-4"
+          alt="Waves at Sea" style="height:200px;"
+        />
+    
+        <img
+          src="{% static '/greek3.jpg' %}"
+          class="w-100 shadow-1-strong rounded mb-4"
+          alt="Yosemite National Park" style="height:200px;"
+        />
+      </div>
+  </div>
+  <!-- Gallery -->
+
+        <div class="main">
+            <center><h1>COME GRAB A SLICE!</h1></center><hr>
+        </div>
+        <div class="main1">
+            <div class="float-end">
+                <div class="div2">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d109066.2590510195!2d75.491016700076!3d31.32251808693824!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391a5a5747a9eb91%3A0xc74b34c05aa5b4b8!2sJalandhar%2C%20Punjab!5e0!3m2!1sen!2sin!4v1690951005542!5m2!1sen!2sin" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            <div class="div1">
+                <h4>MONDAY-FRIDAY 9:00AM-10:00PM</h4>
+                <h4>SATURDAY 10:00AM-9:00PM</h4>
+                <h4>SUNDAY 8:00AM-11:00PM</h4>
+                <br>
+                <h4>TEL:1323446778</h4>
+                <h4>EMAIL:<a href="mailto:info@foodvilla.com">info@foodvilla.com</a></h4>
+
+            </div>
+           
+        </div>
+    <div class="main3">
+        <div class="float-end">
+            <div class="div4">
+                <h4>JOIN US</h4>
+                <input type="text" id="email" placeholder="Enter your email here" name="email" class="form-control"><br>
+                <a href="/signup"><button type="button" class="btn btn-info">SIGNUP NOW</button></a>
+            </div>
+        </div>
+       <div class="div5">
+        <p>&#169;FOOD VILLA,All Rights Reserverd </p>
+       </div>
+    </div>
+
+</body>
+
+</html>
